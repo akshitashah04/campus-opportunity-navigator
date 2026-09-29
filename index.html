@@ -1,0 +1,51 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="theme-color" content="#f7f8f6" />
+    <meta name="description" content="A student opportunity discovery and application tracking prototype." />
+    <title>Campus Opportunity Navigator</title>
+    <link rel="stylesheet" href="./styles.css" />
+    <script type="module" src="./src/app.js"></script>
+  </head>
+  <body>
+    <a class="skip-link" href="#main">Skip to opportunities</a>
+    <div class="app-shell">
+      <aside class="sidebar" aria-label="Sidebar">
+        <a class="brand" href="./" aria-label="Campus Opportunity Navigator home">
+          <span class="brand-mark" aria-hidden="true">✳</span>
+          <span>campus<span class="brand-accent">path</span><small>OPPORTUNITY NAVIGATOR</small></span>
+        </a>
+        <nav class="side-nav" aria-label="Main navigation">
+          <button class="nav-item active" data-view="discover" type="button"><span aria-hidden="true">◫</span> Discover</button>
+          <button class="nav-item" data-view="saved" type="button"><span aria-hidden="true">♡</span> My applications <span class="nav-count" id="savedCount">0</span></button>
+        </nav>
+        <div class="sidebar-bottom">
+          <div class="sidebar-tip"><span class="tip-icon" aria-hidden="true">✦</span><strong>Built to find your next step.</strong><p>Find opportunities and keep your applications in one place.</p></div>
+          <div class="demo-label"><span class="dot"></span> Portfolio prototype · Demo data</div>
+        </div>
+      </aside>
+
+      <div class="workspace">
+        <header class="topbar"><div class="mobile-brand">✳ <strong>campuspath</strong></div><span class="topbar-caption">YOUR CAMPUS, MORE POSSIBILITIES</span><div class="avatar" aria-label="Demo student profile">AS</div></header>
+        <main id="main" tabindex="-1">
+          <section class="hero" aria-labelledby="pageTitle">
+            <div><span class="eyebrow">YOUR NEXT STEP STARTS HERE</span><h1 id="pageTitle">Opportunities, all<br /><em>in one place.</em></h1><p>Explore roles that fit your goals, save the ones you like, and stay on top of every application.</p></div>
+            <div class="hero-art" aria-hidden="true"><div class="orbit orbit-one"></div><div class="orbit orbit-two"></div><div class="hero-star">✳</div><span class="spark spark-one">✦</span><span class="spark spark-two">✧</span></div>
+          </section>
+
+          <section class="content" aria-label="Opportunities">
+            <div class="section-heading"><div><span class="eyebrow green" id="sectionKicker">EXPLORE WHAT'S POSSIBLE</span><h2 id="sectionTitle">Discover opportunities</h2><p id="sectionDescription">A curated starting point for your campus search.</p></div><span class="result-count" id="resultCount"></span></div>
+            <div class="notice" role="note"><span aria-hidden="true">ⓘ</span><span><strong>Demo listings.</strong> These examples are fictional and cannot be applied to. Always confirm a real role’s eligibility and deadline with its official source.</span></div>
+            <div class="toolbar"><label class="search-box"><span aria-hidden="true">⌕</span><span class="sr-only">Search opportunities</span><input id="searchInput" type="search" placeholder="Search roles, skills, or departments" autocomplete="off" /></label><label class="filter-box"><span class="sr-only">Filter by opportunity type</span><select id="typeFilter"><option value="all">All types</option><option value="On-campus job">On-campus jobs</option><option value="Research">Research</option><option value="Teaching">Teaching</option><option value="Fellowship">Fellowships</option></select></label></div>
+            <div class="cards" id="opportunityList" aria-live="polite"></div>
+            <div class="empty-state" id="emptyState" hidden><span aria-hidden="true">⌕</span><h3>Nothing here yet</h3><p id="emptyMessage">Try a different search or filter.</p><button id="resetFilters" type="button">Clear filters</button></div>
+          </section>
+        </main>
+      </div>
+    </div>
+    <dialog id="detailDialog" aria-labelledby="dialogTitle"><div id="dialogContent"></div></dialog>
+    <div id="toast" role="status" aria-live="polite"></div>
+  </body>
+</html>
